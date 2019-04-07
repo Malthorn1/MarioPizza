@@ -104,7 +104,7 @@ public class Controller {
                 ui.redigerBestilling(aktiveOrdrer);
                 break;
             case "2":
-                ui.fjernBestilling(aktiveOrdrer);
+                fjernBestilling();
                 break;
             case"3":
                 ui.færdiggørBestilling(aktiveOrdrer);
@@ -118,7 +118,9 @@ public class Controller {
         
         
     }
-
+    public void fjernBestilling(){
+        ui.fjernBestilling(aktiveOrdrer);
+    }
     public void visAktiveOrdrer() {
         ui.visAktiveOrdrer(aktiveOrdrer);
         
