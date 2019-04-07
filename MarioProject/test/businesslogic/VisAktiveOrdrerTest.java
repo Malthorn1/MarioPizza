@@ -23,19 +23,19 @@ public class VisAktiveOrdrerTest {
         menukort.add(new Pizza(2, "Amerikaner", 53.0));
         menukort.add(new Pizza(3, "Cacciatore", 57.0));
         
-        String[] input = {"2", "3", "q"}; // test input data
+        String[] input = {"2"}; // test input data
         FakeUI ui = new FakeUI(input);
         Controller ctrl = new Controller(ui, menukort);
 
         //act
-        ctrl.start();
+        ctrl.opretBestilling();
         ctrl.visAktiveOrdrer();
         
         
         //assert
-        assertTrue(ui.output.get(0).contains("muligheder"));
-        //assertTrue(ctrl.getAktiveOrdrer().size()==4);
-        assertTrue(ui.output.get(1).contains("Amerikaner"));
+        
+        assertTrue(ctrl.getAktiveOrdrer().size()==1);
+        
         
     }
 
