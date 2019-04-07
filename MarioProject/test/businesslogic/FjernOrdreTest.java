@@ -19,13 +19,13 @@ public class FjernOrdreTest {
         menukort.add(new Pizza(1, "Vesuvio", 57.0));
         menukort.add(new Pizza(2, "Amerikaner", 53.0));
         menukort.add(new Pizza(3, "Cacciatore", 57.0));
-        String[] input = {"1","2"}; // test input data
+        String[] input = {"2", "2"}; // test input data
         FakeUI ui = new FakeUI(input);
         Controller ctrl = new Controller(ui, menukort);
         
         //act
         ctrl.opretBestilling();
-        ctrl.redigerBestilling();
+        ctrl.fjernBestilling();
         
         
         assertTrue(ctrl.getAktiveOrdrer().size()==0);
