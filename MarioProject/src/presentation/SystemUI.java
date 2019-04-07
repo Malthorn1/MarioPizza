@@ -77,7 +77,13 @@ public class SystemUI implements UI {
         } finally {
 
         }
-
+        Scanner scan = new Scanner(System.in);
+        System.out.print("\nTryk q for returnere til hovedmenu: ");
+        String brugerInput = scan.next();
+        if (brugerInput.contains("q")) {
+            visHovedMenu();
+        }
+        
     }
 
     @Override
