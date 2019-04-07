@@ -78,9 +78,9 @@ public class Controller {
             e.printStackTrace();
         }
             
-       
+       //Kunne ikke lave nogle Junit test da vi havde "start()" her grundet vi fik en arrayoutofboundsexception
         
-        start();
+        
     }
 
     
