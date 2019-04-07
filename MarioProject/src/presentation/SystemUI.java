@@ -26,6 +26,7 @@ public class SystemUI implements UI {
     @Override
     public void visPizzaValg(String str) {
         System.out.println(str);
+        visHovedMenu();
 
     }
 
