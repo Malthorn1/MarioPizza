@@ -24,9 +24,10 @@ public class FjernOrdreTest {
         Controller ctrl = new Controller(ui, menukort);
         
         //act
-        ctrl.start();
+        ctrl.opretBestilling();
+        ctrl.redigerBestilling();
         
-        //assertTrue(ui.output.get(3).contains("3"));
-        //assertTrue(ctrl.getAktiveOrdrer().size()==0);
+        
+        assertTrue(ctrl.getAktiveOrdrer().size()==0);
     }
 }
