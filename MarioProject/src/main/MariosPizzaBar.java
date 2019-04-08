@@ -6,13 +6,15 @@ import java.util.ArrayList;
 import presentation.FakeUI;
 import presentation.SystemUI;
 import presentation.UI;
+import database.Database;
+import java.sql.SQLException;
 
 /**
  *
  * @author Casper P, Frederik, Mikkel
  */
 public class MariosPizzaBar {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         ArrayList<Pizza> pizzaer = new ArrayList();
         pizzaer.add(new Pizza(1, "Vesuvio", 57.0));
          pizzaer.add(new Pizza(2, "Amerikaner", 53.0));
@@ -30,7 +32,10 @@ public class MariosPizzaBar {
          pizzaer.add(new Pizza(14, "Mafia", 61.0));
         SystemUI ui = new SystemUI();
         Controller ctrl = new Controller(ui, pizzaer);
-        ctrl.start();
+        Database db = new Database();
+        //ctrl.start();
+        
+        db.printMenukort();
         
         
     }
