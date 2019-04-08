@@ -41,10 +41,11 @@ public class FakeUI implements UI {
     }
 
     @Override
-    public void visMenuKort(ArrayList<Pizza> menukort) {
+    public String visMenuKort(ArrayList<Pizza> menukort) {
         for(Pizza pizza:menukort){
             output.add(pizza.toString());
         }
+        return "";
     }
 
     @Override

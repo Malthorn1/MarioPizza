@@ -17,7 +17,7 @@ public interface UI {
 
     public void visOrdreNummer(int ordrenummer);
 
-    public void visMenuKort(ArrayList<Pizza> menukort);
+    public String visMenuKort(ArrayList<Pizza> menukort);
 
     public void visHovedMenu();
 

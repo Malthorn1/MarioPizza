@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 
 public class SystemUI implements UI {
+    //public Scanner brugerInput = new Scanner(System.in);
 
     @Override
     public int vælgPizza() {
@@ -36,17 +37,12 @@ public class SystemUI implements UI {
     }
 
     @Override
-    public void visMenuKort(ArrayList<Pizza> menukort) {
+    public String visMenuKort(ArrayList<Pizza> menukort) {
         for (Pizza pizza : menukort) {
             System.out.println(pizza.toString());
         }
-        Scanner scan = new Scanner(System.in);
         System.out.println("\nTryk q for at gå tilbage");
-        String brugerInput = scan.nextLine();
-        if (brugerInput.contains("q"))
-            visHovedMenu();
-        else
-            System.out.println("Hvis du vil tilbage så tryk q");
+        return getQ();
     }
 
     @Override
@@ -74,9 +70,8 @@ public class SystemUI implements UI {
             ordrehistorik.visOrdreHistorik();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-
-        }
+        } 
+        
         Scanner scan = new Scanner(System.in);
         System.out.print("\nTryk q for returnere til hovedmenu: ");
         String brugerInput = scan.next();
@@ -163,4 +158,19 @@ public class SystemUI implements UI {
         }
 
     }
+    
+     public String getQ() {
+         
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine();
+
+        if (input.startsWith("q")) {
+            visHovedMenu();
+        } else if (input != "q") {
+            System.out.print("Input forkert, prøv igen: ");
+            return getQ();
+        }
+        return "";
+    }
+        
 }
