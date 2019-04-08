@@ -33,7 +33,7 @@ public interface UI {
     
     public void færdiggørBestilling(ArrayList<Bestilling>aktiveOrdrer);
     
-    public void fjernBestillingMenu(); 
+    public void redigerBestillingsMenu(); 
     
     
 }

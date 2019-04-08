@@ -93,10 +93,7 @@ public class Controller {
     }
 
     public void redigerBestilling() {
-        System.out.println("1: Rediger en ordre");
-        System.out.println("2: Fjern en ordre");
-        System.out.println("3: Færdiggør en ordre");
-        System.out.println("q: Tilbage til hovedmenu");
+        redigerBestillingsMenu(); 
         Scanner scan = new Scanner(System.in);
         String brugerInput = scan.nextLine();
         switch(brugerInput){

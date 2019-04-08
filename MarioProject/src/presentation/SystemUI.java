@@ -172,7 +172,7 @@ public class SystemUI implements UI {
     }
 
     @Override
-    public void fjernBestillingMenu() {
+    public void redigerBestillingsMenu() {
         System.out.println("1: Rediger en ordre");
         System.out.println("2: Fjern en ordre");
         System.out.println("3: Færdiggør en ordre");
