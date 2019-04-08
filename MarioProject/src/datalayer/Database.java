@@ -51,6 +51,7 @@ public class Database implements DB {
 
     @Override
     public void opretBestilling(Pizza pizza) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //        Connection connection = connector();
 //        
 //        
@@ -72,4 +73,5 @@ public class Database implements DB {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+   
 }
