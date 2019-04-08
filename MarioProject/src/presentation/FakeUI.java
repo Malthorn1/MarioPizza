@@ -77,8 +77,9 @@ public class FakeUI implements UI {
     }
 
     @Override
-    public void fjernBestilling(ArrayList<Bestilling> aktiveOrdrer) {
+    public String fjernBestilling(ArrayList<Bestilling> aktiveOrdrer) {
         aktiveOrdrer.remove(0);
+        return "";
     }
 
     @Override

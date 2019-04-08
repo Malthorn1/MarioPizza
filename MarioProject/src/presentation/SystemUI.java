@@ -29,7 +29,7 @@ public class SystemUI implements UI {
             if(result>0 && result<15) {
                 break;
             } else {
-                System.out.println("Pizza does not exist, try agian"); 
+                System.err.println("Pizzaen findes ikke, prøv igen."); 
             }
         }
 
@@ -109,20 +109,17 @@ public class SystemUI implements UI {
         System.out.println("Indtast odrenummeret på den bestilling du ønsker at ændre: ");
         System.out.println("q for at gå tilbage");
         String brugerInput = scan.nextLine();
-        if (brugerInput.contains("q")) {
-            hovedMenuValg();
-        }
 
     }
 
     @Override
-    public void fjernBestilling(ArrayList<Bestilling> aktiveOrdrer) {
+    public String fjernBestilling(ArrayList<Bestilling> aktiveOrdrer) {
         System.out.println("Indtast ordrenummer på ordren du ønsker at slette");
-        System.out.println("q for at gå tilbage til rediger bestilling");
+        System.out.println("Skriv q for at gå tilbage til rediger bestilling");
         Scanner scan = new Scanner(System.in);
-        String brugerInput = scan.nextLine();
+        String brugerInput = scan.nextLine();                
         //Hvis bruger ønsker at afslutte
-        if (brugerInput.contains("q")) {
+        if (brugerInput.equals("q")) {
             redigerBestilling(aktiveOrdrer);
         }
         //Hvis bruger ikke ønsker at afslutte kører for loopet og søge gennem aktiveOrdrer array
@@ -132,10 +129,12 @@ public class SystemUI implements UI {
             if (aktiveOrdrer.get(i).toString().contains(brugerInput)) {
                 System.out.println("Du har fjernet ordre: " + aktiveOrdrer.get(i));
                 aktiveOrdrer.remove(i);
-
-            }
+                visHovedMenu();
+            } else {
+                System.err.println("Ordren findes ikke, prøv igen."); 
         }
-        visHovedMenu();
+    }
+        return "";
     }
 
     //Har lavet denne metode for at tilføje til ordrehistorik når man færdiggør en ordre,
@@ -183,26 +182,13 @@ public class SystemUI implements UI {
         } 
         return "";
     }
-    
-    /*public int vælgPizzaQ() {
-        Scanner scan = new Scanner(System.in);
-        int input = scan.nextInt();
-
-        if (input.startsWith("q")) {
-            visHovedMenu();
-        } else if (input != "q") {
-            System.out.print("Input forkert, prøv igen: ");
-            return getQ();
-        }
-        return scan.nextInt();
-    }*/
 
     @Override
     public void redigerBestillingsMenu() {
         System.out.println("1: Rediger en ordre");
         System.out.println("2: Fjern en ordre");
         System.out.println("3: Færdiggør en ordre");
-        System.out.println("q: Tilbage til hovedmenu");
+        System.out.println("Skriv q for at gå tilbage til hovedmenu");
     }
 
 }

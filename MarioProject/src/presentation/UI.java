@@ -29,7 +29,7 @@ public interface UI {
 
     public void redigerBestilling(ArrayList<Bestilling> aktiveOrdrer);
 
-    public void fjernBestilling(ArrayList<Bestilling> aktiveOrdrer);
+    public String fjernBestilling(ArrayList<Bestilling> aktiveOrdrer);
     
     public void færdiggørBestilling(ArrayList<Bestilling>aktiveOrdrer);
     

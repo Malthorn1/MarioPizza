@@ -112,7 +112,7 @@ public class Controller {
             case "q":
                 ui.visHovedMenu();
             default:
-                throw new IllegalArgumentException();
+                System.err.print("Input forkert, prøv igen: ");
         }
         
         
