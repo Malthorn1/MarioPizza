@@ -12,8 +12,6 @@ import java.util.Scanner;
  *
  * @author Casper P, Frederik, Mikkel
  */
-
-
 public class SystemUI implements UI {
     //public Scanner brugerInput = new Scanner(System.in);
 
@@ -70,15 +68,15 @@ public class SystemUI implements UI {
             ordrehistorik.visOrdreHistorik();
         } catch (IOException e) {
             e.printStackTrace();
-        } 
-        
+        }
+
         Scanner scan = new Scanner(System.in);
         System.out.print("\nTryk q for returnere til hovedmenu: ");
         String brugerInput = scan.next();
         if (brugerInput.contains("q")) {
             visHovedMenu();
         }
-        
+
     }
 
     @Override
@@ -158,9 +156,9 @@ public class SystemUI implements UI {
         }
 
     }
-    
-     public String getQ() {
-         
+
+    public String getQ() {
+
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
 
@@ -172,5 +170,13 @@ public class SystemUI implements UI {
         }
         return "";
     }
-        
+
+    @Override
+    public void fjernBestillingMenu() {
+        System.out.println("1: Rediger en ordre");
+        System.out.println("2: Fjern en ordre");
+        System.out.println("3: Færdiggør en ordre");
+        System.out.println("q: Tilbage til hovedmenu");
+    }
+
 }
