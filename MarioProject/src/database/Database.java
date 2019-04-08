@@ -13,14 +13,14 @@ public class Database {
         Connection connection = null;
         try {
             String user = "root";
-            String password = "mixe91decoys";
+            String password = "frb150195";
             String IP = "localhost";
             String PORT = "3306";
             String DATABASE = "mario";
-            String url = "jdbc:mysql://" + IP + ":" + PORT + "/" + DATABASE;
-                    /*+ "?useUnicode=true&useJDBCcompliantTimezoneShift=true&"
+            String url = "jdbc:mysql://" + IP + ":" + PORT + "/" + DATABASE
+                    + "?useUnicode=true&useJDBCcompliantTimezoneShift=true&"
                     + "useLegacyDatetimeCode=false&"
-                    + "serverTimezone=UTC"; */
+                    + "serverTimezone=UTC"; 
 
             connection = DriverManager.getConnection(url, user, password);
             
