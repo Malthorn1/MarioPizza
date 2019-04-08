@@ -36,8 +36,13 @@ public class Database {
         Statement statement = connection.createStatement();
         ResultSet result = statement.executeQuery("SELECT * FROM pizzaer");
         while (result.next()) {
-            int resultat = result.getInt(1);
-            System.out.println(resultat);
+            int pizzanummer = result.getInt(1);
+            String pizzanavn  = result.getNString(2);
+            int pizzapris = result.getInt(3);
+            System.out.print(pizzanummer + " ");
+            System.out.print(pizzanavn + " ");
+            System.out.print(pizzapris+"\n");
+            
         }
     }
 
