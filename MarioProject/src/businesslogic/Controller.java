@@ -93,7 +93,8 @@ public class Controller {
     }
 
     public void redigerBestilling() {
-        redigerBestillingsMenu(); 
+        
+        ui.redigerBestillingsMenu(); 
         Scanner scan = new Scanner(System.in);
         String brugerInput = scan.nextLine();
         switch(brugerInput){
