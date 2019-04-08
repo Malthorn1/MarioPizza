@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import presentation.FakeUI;
 import presentation.SystemUI;
 import presentation.UI;
-import database.Database;
+import datalayer.Database;
 import java.sql.SQLException;
 
 /**

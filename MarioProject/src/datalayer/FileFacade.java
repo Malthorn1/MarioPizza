@@ -2,6 +2,7 @@ package datalayer;
 
 
 import businesslogic.Bestilling;
+import businesslogic.Pizza;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -43,7 +44,7 @@ public class FileFacade implements DB {
     }
 
     @Override
-    public void opretBestilling() {
+    public void opretBestilling(Pizza pizza) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
