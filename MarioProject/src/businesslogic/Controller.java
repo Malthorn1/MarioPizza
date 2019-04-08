@@ -50,7 +50,7 @@ public class Controller {
                     quit = true;
                     break;
                 default:
-                    throw new IllegalArgumentException();
+                    System.err.print("Input forkert, prøv igen: ");
             }
         } while (!quit);
 
@@ -93,7 +93,6 @@ public class Controller {
     }
 
     public void redigerBestilling() {
-        
         ui.redigerBestillingsMenu(); 
         Scanner scan = new Scanner(System.in);
         String brugerInput = scan.nextLine();

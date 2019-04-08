@@ -13,14 +13,28 @@ import java.util.Scanner;
  * @author Casper P, Frederik, Mikkel
  */
 public class SystemUI implements UI {
-    //public Scanner brugerInput = new Scanner(System.in);
 
     @Override
     public int vælgPizza() {
-        System.out.println("Skriv hvilket pizzanummer kunden har bestilt");
+        /*System.out.println("Skriv hvilket pizzanummer kunden har bestilt. Skriv q for at gå tilbage.");
         Scanner scan = new Scanner(System.in);
-        return scan.nextInt();
-    }
+        return scan.nextInt();*/
+        Scanner scan = new Scanner(System.in);
+        int result;
+        System.out.println("Skriv hvilket pizzanummer kunden har bestilt. Skriv q for at gå tilbage.");
+
+        while(true){
+        result = scan.nextInt();
+
+            if(result>0 && result<15) {
+                break;
+            } else {
+                System.out.println("Pizza does not exist, try agian"); 
+            }
+        }
+
+        return result;
+        }
 
     @Override
     public void visPizzaValg(String str) {
@@ -158,9 +172,21 @@ public class SystemUI implements UI {
     }
 
     public String getQ() {
-
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
+
+        if (input.equals("q")) {
+            visHovedMenu();
+        } else if (input != "q") {
+            System.err.print("Input forkert, prøv igen: ");
+            return getQ();
+        } 
+        return "";
+    }
+    
+    /*public int vælgPizzaQ() {
+        Scanner scan = new Scanner(System.in);
+        int input = scan.nextInt();
 
         if (input.startsWith("q")) {
             visHovedMenu();
@@ -168,8 +194,8 @@ public class SystemUI implements UI {
             System.out.print("Input forkert, prøv igen: ");
             return getQ();
         }
-        return "";
-    }
+        return scan.nextInt();
+    }*/
 
     @Override
     public void redigerBestillingsMenu() {
