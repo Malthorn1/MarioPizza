@@ -11,8 +11,6 @@ import java.util.ArrayList;
  *
  * @author Casper P, Frederik, Mikkel
  */
-
-
 public class FakeUI implements UI {
 
     private String[] input;
@@ -22,27 +20,27 @@ public class FakeUI implements UI {
     public FakeUI(String[] input) {
         this.input = input;
     }
-    
+
     @Override
-    public void visPizzaValg(String str){
+    public void visPizzaValg(String str) {
         output.add(str);
-        
+
     }
-    
+
     @Override
     public int vælgPizza() {
         output.add("Skriv hvilket pizzanummer kunden har bestilt");
         return Integer.parseInt(input[index++]);
-}
+    }
 
     @Override
     public void visOrdreNummer(int ordrenummer) {
-        output.add(""+ordrenummer);
+        output.add("" + ordrenummer);
     }
 
     @Override
     public String visMenuKort(ArrayList<Pizza> menukort) {
-        for(Pizza pizza:menukort){
+        for (Pizza pizza : menukort) {
             output.add(pizza.toString());
         }
         return "";
@@ -67,8 +65,8 @@ public class FakeUI implements UI {
     }
 
     @Override
-    public void visAktiveOrdrer(ArrayList<Bestilling>aktiveOrdrer) {
-        for(Bestilling bestilling: aktiveOrdrer){
+    public void visAktiveOrdrer(ArrayList<Bestilling> aktiveOrdrer) {
+        for (Bestilling bestilling : aktiveOrdrer) {
             output.add(bestilling.toString());
         }
     }
@@ -84,9 +82,16 @@ public class FakeUI implements UI {
     }
 
     @Override
-    public void færdiggørBestilling(ArrayList<Bestilling>aktiveOrdrer ) {
+    public void færdiggørBestilling(ArrayList<Bestilling> aktiveOrdrer) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+    @Override
+    public void fjernBestillingMenu() {
+        System.out.println("1: Rediger en ordre");
+        System.out.println("2: Fjern en ordre");
+        System.out.println("3: Færdiggør en ordre");
+        System.out.println("q: Tilbage til hovedmenu");
+    }
+
 }
