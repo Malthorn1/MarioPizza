@@ -1,6 +1,7 @@
 
 package datalayer;
 
+import businesslogic.Pizza;
 import java.sql.SQLException;
 
 /**
@@ -9,7 +10,7 @@ import java.sql.SQLException;
  */
 public interface DB {
     
-    public void opretBestilling();
+    public void opretBestilling(Pizza pizza);
     
     public void printMenukort() throws SQLException;
     
