@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Scanner;
  * @author Casper P, Frederik, Mikkel
  */
 
-public class FileFacade {
+public class FileFacade implements DB {
     //Write file tager en bestilling inde fra controlleren når vi opretter ordre. 
     // Den writer så ordrens toString ind i filen
     public void writeFile(Bestilling bestilling) throws IOException {
@@ -39,5 +40,20 @@ public class FileFacade {
         scan.close();
         
         
+    }
+
+    @Override
+    public void opretBestilling() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void printMenukort() throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void fjernBestilling() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
