@@ -10,7 +10,7 @@ import java.sql.SQLException;
  */
 public interface DB {
     
-    public void opretBestilling();
+    public void opretBestilling(Pizza pizza)throws SQLException;
     
     public void printMenukort() throws SQLException;
     

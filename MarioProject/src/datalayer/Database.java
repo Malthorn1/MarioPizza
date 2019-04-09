@@ -76,7 +76,7 @@ public class Database implements DB {
 
     @Override
     public void opretBestilling(Pizza pizza) throws SQLException {
-        Date date = Date.valueOf(LocalDate.now(UTC));
+        Date date = Date.valueOf(LocalDate.now());
         Connection connection = connector();
         pizza = getPizza(pizza.getPizzaNummer());
         Statement stat = connection.createStatement();
