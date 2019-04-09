@@ -23,18 +23,17 @@ public class SystemUI implements UI {
         int result;
         System.out.println("Skriv hvilket pizzanummer kunden har bestilt. Skriv q for at gå tilbage.");
 
-        while(true){
-        result = scan.nextInt();
+        while (true) {
+            result = scan.nextInt();
 
-            if(result>0 && result<15) {
+            if (result > 0 && result < 14) {
                 break;
             } else {
-                System.err.println("Pizzaen findes ikke, prøv igen."); 
+                System.err.println("Pizzaen findes ikke, prøv igen.");
             }
         }
-
         return result;
-        }
+    }
 
     @Override
     public void visPizzaValg(String str) {
@@ -117,7 +116,7 @@ public class SystemUI implements UI {
         System.out.println("Indtast ordrenummer på ordren du ønsker at slette");
         System.out.println("Skriv q for at gå tilbage til rediger bestilling");
         Scanner scan = new Scanner(System.in);
-        String brugerInput = scan.nextLine();                
+        String brugerInput = scan.nextLine();
         //Hvis bruger ønsker at afslutte
         if (brugerInput.equals("q")) {
             redigerBestilling(aktiveOrdrer);
@@ -131,9 +130,9 @@ public class SystemUI implements UI {
                 aktiveOrdrer.remove(i);
                 visHovedMenu();
             } else {
-                System.err.println("Ordren findes ikke, prøv igen."); 
+                System.err.println("Ordren findes ikke, prøv igen.");
+            }
         }
-    }
         return "";
     }
 
@@ -179,7 +178,7 @@ public class SystemUI implements UI {
         } else if (input != "q") {
             System.err.print("Input forkert, prøv igen: ");
             return getQ();
-        } 
+        }
         return "";
     }
 
@@ -191,4 +190,19 @@ public class SystemUI implements UI {
         System.out.println("Skriv q for at gå tilbage til hovedmenu");
     }
 
+    @Override
+    public boolean MerePizza() {
+        System.out.println("Vil kunden have mere pizza? tast 1 for ja, tryk alt andet for nej");
+        Scanner scan = new Scanner(System.in);
+        String brugerInput = scan.nextLine();
+        String Invalid; 
+        
+       
+        if (brugerInput.equals("1" )){
+            return true; 
+        } else  {
+            return false;
+        } 
+    }
 }
+

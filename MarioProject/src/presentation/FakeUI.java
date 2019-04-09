@@ -95,4 +95,9 @@ public class FakeUI implements UI {
         System.out.println("q: Tilbage til hovedmenu");
     }
 
+    @Override
+    public boolean MerePizza() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

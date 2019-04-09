@@ -62,14 +62,25 @@ public class Controller {
     //historikken så snart vi laver en bestilling. 
     public void opretBestilling() {
         int pizzaNummer = ui.vælgPizza();
+        int pizzanummer2; 
+  
         FileFacade ordre = new FileFacade();
         Bestilling bestilling = new Bestilling(menukort.get(pizzaNummer - 1), currentOrderNum);
         //Tilføj bestilling til ordrelisten
         aktiveOrdrer.add(bestilling);
+         
+        if (ui.MerePizza() == true) {
+            pizzanummer2 = ui.vælgPizza();
+            //bestilling =  Bestilling(menukort.get(pizzanummer2-1), currentOrderNum);
+           
+        } else
+        
         // Vis ordrenummer på skærm
         ui.visOrdreNummer(currentOrderNum);
         //Viser pizzavalg
         ui.visPizzaValg(bestilling.getPizza().toString());
+        ui.visPizzaValg(aktiveOrdrer.toString());
+        
         currentOrderNum++;
         try{
             ordre.writeFile(bestilling);

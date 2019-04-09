@@ -35,5 +35,7 @@ public interface UI {
     
     public void redigerBestillingsMenu(); 
     
+    public boolean MerePizza(); 
+    
     
 }
