@@ -1,7 +1,7 @@
 package presentation;
 
 import businesslogic.Bestilling;
-import businesslogic.FileFacade;
+import datalayer.FileFacade;
 import businesslogic.Pizza;
 import java.io.FileNotFoundException;
 import java.io.IOException;

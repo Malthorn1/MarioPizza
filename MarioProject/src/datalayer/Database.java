@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,7 +17,7 @@ public class Database implements DB {
         Connection connection = null;
         try {
             String user = "root";
-            String password = "rootprejler";
+            String password = "frb150195";
             String IP = "localhost";
             String PORT = "3306";
             String DATABASE = "mario";
@@ -50,7 +51,7 @@ public class Database implements DB {
     }
 
     @Override
-    public void opretBestilling(Pizza pizza) {
+    public void opretBestilling() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //        Connection connection = connector();
 //        
@@ -66,7 +67,19 @@ public class Database implements DB {
 //        } catch (SQLException e) {
 //
 //        }
-    }
+        Scanner scanner = new Scanner(System.in);
+            try {
+                Connection connection = connector();
+                Statement statement = connection.createStatement();
+                int PIZZANUMMER=scanner.nextInt();
+                statement.executeUpdate("insert into AKTIVEORDRER value('"+PIZZANUMMER+"')");
+            } catch (SQLException ex) {
+                Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //https://www.youtube.com/watch?v=c139qtuK2_s 
+        }
+    
+
 
     @Override
     public void fjernBestilling() {
