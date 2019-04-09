@@ -34,8 +34,13 @@ public class MariosPizzaBar {
         Controller ctrl = new Controller(ui, pizzaer);
         Database db = new Database();
         //ctrl.start();
-        System.out.println(db.getPizza(15));
-        db.opretBestilling(db.getPizza(2));
+        
+        
+        System.out.println(db.getPizza(2));
+        db.opretBestilling(db.getPizza(5));
+        db.opretBestilling(db.getPizza(7));
+        db.opretBestilling(db.getPizza(9));
+        db.opretBestilling(db.getPizza(13));
         //db.printMenukort();
         
         

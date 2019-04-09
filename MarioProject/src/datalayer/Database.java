@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class Database implements DB {
 
@@ -76,42 +75,56 @@ public class Database implements DB {
 
     @Override
     public void opretBestilling(Pizza pizza) throws SQLException {
-        Date date = Date.valueOf(LocalDate.now());
-        Connection connection = connector();
-        pizza = getPizza(pizza.getPizzaNummer());
-        Statement stat = connection.createStatement();
-        
+        //Skal indlæse alle værdier fra aktive ordrer og derefter skrive til aktiveordrer med det pizza objekt. 
+        Database db = new Database();
+        Connection connection = db.connector();
+
         try {
-
-            int ORDRENUMMER = 1;
-            //Laver et SQL date object vi kan sætte ind
-            ResultSet rs = stat.executeQuery("SELECT TIMESTAMP(NOW()) as timestamp");
-            Timestamp ts = rs.getTimestamp("timestamp");
-            String sql = "INSERT INTO aktiveordrer(ORDRENUMMER, FÆRDIG, DATOOPRETTET, DATOFÆRDIG, PIZZANUMMER)VALUES(?,?,?,?,?)";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, ORDRENUMMER + 1);
-            statement.setBoolean(2, false);
-            statement.setDate(3, date);
-            statement.setNull(4, 0);
-            statement.setInt(5, pizza.getPizzaNummer());
-            statement.executeUpdate();
-
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery("select * from aktiveordrer");
+            if (rs.next()) {
+                String sql = "insert into aktiveordrer(ORDRENUMMER, FÆRDIG, DATOOPRETTET, DATOFÆRDIG, PIZZANUMMER)VALUES(?,?,?,?,?)";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setInt(1, rs.getInt("ORDRENUMMER"));
+                statement.setBoolean(2, rs.getBoolean("FÆRDIG"));
+                statement.setTimestamp(3, rs.getTimestamp("DATOOPRETTET"));
+                statement.setDate(4, rs.getDate("DATOFÆRDIG"));
+                statement.setInt(5, pizza.getPizzaNummer());
+                statement.execute();
+                
+            }
+            
         } catch (SQLException e) {
-
         }
     }
-//        Scanner scanner = new Scanner(System.in);
-//            try {
-//                Connection connection = connector();
-//                Statement statement = connection.createStatement();
-//                int PIZZANUMMER=scanner.nextInt();
-//                statement.executeUpdate("insert into AKTIVEORDRER value('"+PIZZANUMMER+"')");
-//            } catch (SQLException ex) {
-//                Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+    
+    //GAMLE METODE IN CASE OF EMERGENCY
+//    @Override
+//    public void opretBestilling(Pizza pizza) throws SQLException {
+//        Database db = new Database();
+//        Connection connection = db.connector();
+//
+//        try {
+//            pizza = getPizza(pizza.getPizzaNummer());
+//            Statement stat = connection.createStatement();
+//            int ORDRENUMMER = 1;
+//            ResultSet rs = stat.executeQuery("SELECT TIMESTAMP(NOW()) as timestamp");
+//            if (rs.next()) {
+//                Timestamp ts = rs.getTimestamp("timestamp");
+//                String sql = "INSERT INTO aktiveordrer(ORDRENUMMER, FÆRDIG, DATOOPRETTET, DATOFÆRDIG, PIZZANUMMER)VALUES(?,?,?,?,?)";
+//                PreparedStatement statement = connection.prepareStatement(sql);
+//                statement.setInt(1, ORDRENUMMER + 1);
+//                statement.setBoolean(2, false);
+//                statement.setTimestamp(3, ts);
+//                statement.setNull(4, 0);
+//                statement.setInt(5, pizza.getPizzaNummer());
+//                statement.execute();
 //            }
-//            //https://www.youtube.com/watch?v=c139qtuK2_s 
+//
+//        } catch (SQLException e) {
+//
 //        }
-//    
+//    }
 
     @Override
     public void fjernBestilling() {
