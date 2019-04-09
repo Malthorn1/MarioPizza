@@ -44,7 +44,7 @@ public class FileFacade implements DB {
     }
 
     @Override
-    public void opretBestilling(Pizza pizza) {
+    public void opretBestilling() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
