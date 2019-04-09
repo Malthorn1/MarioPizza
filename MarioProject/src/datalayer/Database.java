@@ -17,7 +17,7 @@ public class Database implements DB {
         Connection connection = null;
         try {
             String user = "root";
-            String password = "frb150195";
+            String password = "rootprejler";
             String IP = "localhost";
             String PORT = "3306";
             String DATABASE = "mario";
@@ -34,6 +34,8 @@ public class Database implements DB {
         return connection;
     }
 
+    
+    
     @Override
     public void printMenukort() throws SQLException {
         Connection connection = connector();
@@ -49,7 +51,28 @@ public class Database implements DB {
 
         }
     }
-
+    // Med denne metode laver vi et pizza object fra databasen som vi kan bruge 
+    // til at lave ordrer med
+    public Pizza getPizza(int pizzaNummer) throws SQLException{
+        Database db = new Database();
+        Connection connection = db.connector();
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM pizzaer WHERE PIZZANUMMER"
+                    + "=" + pizzaNummer);
+            if(rs.next()){
+                Pizza pizza = new Pizza();
+                pizza.setPizzaNummer(rs.getInt("PIZZANUMMER"));
+                pizza.setPizzaNavn(rs.getString("PIZZANAVN"));
+                pizza.setPris(rs.getInt("PIZZAPRIS"));
+                return pizza;
+            }
+                
+        }catch (SQLException ex){
+            
+        }
+        return null;
+    }
     @Override
     public void opretBestilling() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
