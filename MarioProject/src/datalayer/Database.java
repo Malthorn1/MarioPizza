@@ -52,7 +52,7 @@ public class Database implements DB {
 
     @Override
     public void opretBestilling() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //        Connection connection = connector();
 //        
 //        
