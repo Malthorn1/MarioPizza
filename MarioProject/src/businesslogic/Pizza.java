@@ -1,6 +1,12 @@
 
 package businesslogic;
 
+import datalayer.Database;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author Casper P, Frederik, Mikkel
@@ -11,6 +17,10 @@ public class Pizza {
     private int pizzaNummer;
     private String pizzaNavn;
     private double pris;
+    
+    public Pizza(){
+    }
+    
     public Pizza(int pizzaNummer, String pizzaNavn, double pris) {
         this.pizzaNummer=pizzaNummer;
         this.pizzaNavn=pizzaNavn;
@@ -28,6 +38,23 @@ public class Pizza {
     public double getPris() {
         return pris;
     }
+
+    public void setPizzaNummer(int pizzaNummer) {
+        this.pizzaNummer = pizzaNummer;
+    }
+
+    public void setPizzaNavn(String pizzaNavn) {
+        this.pizzaNavn = pizzaNavn;
+    }
+
+    public void setPris(double pris) {
+        this.pris = pris;
+    }
+    
+    
+    
+        
+    
     
     @Override
     public String toString(){
