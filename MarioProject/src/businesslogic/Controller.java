@@ -73,14 +73,14 @@ public class Controller {
             pizzanummer2 = ui.vælgPizza();
             Bestilling bestilling2 = new Bestilling(menukort.get(pizzanummer2 - 1), currentOrderNum);
              aktiveOrdrer.add(bestilling2);
-             //ui.MerePizza();
         } 
         
         // Vis ordrenummer på skærm
         ui.visOrdreNummer(currentOrderNum);
         //Viser pizzavalg
-        ui.visPizzaValg(bestilling.getPizza().toString());
+        //ui.visPizzaValg(bestilling.getPizza().toString());
         ui.visPizzaValg(aktiveOrdrer.toString());
+        
         
         currentOrderNum++;
         try{

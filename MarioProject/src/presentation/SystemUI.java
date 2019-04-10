@@ -37,7 +37,10 @@ public class SystemUI implements UI {
 
     @Override
     public void visPizzaValg(String str) {
-        System.out.println(str);
+        String[] arrOfStr =str.split("  ,");
+        for(String a:arrOfStr) System.out.println(a);
+        
+        //System.out.println(str);
         visHovedMenu();
 
     }
@@ -190,7 +193,7 @@ public class SystemUI implements UI {
         System.out.println("Skriv q for at gå tilbage til hovedmenu");
     }
 
-    @Override
+     @Override
     public boolean MerePizza() {
         System.out.println("Vil kunden have mere pizza? tast 1 for ja, tryk alt andet for nej");
         Scanner scan = new Scanner(System.in);
@@ -203,6 +206,7 @@ public class SystemUI implements UI {
         } else  {
             return false;
         } 
+        
     }
 }
 
