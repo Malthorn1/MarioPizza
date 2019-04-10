@@ -104,10 +104,19 @@ public class Database implements DB {
         }
     }
 
-
+    //Skal tage en integer, som så skal sammenlignes med ordrenummeret i SQL databasen, hvis det matcher
+    //Fjerner den den linje
     @Override
-    public void fjernBestilling() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void fjernBestilling(Integer ordrenummer) {
+        Database db = new Database();
+        Connection connection = db.connector();
+        try{
+            PreparedStatement st = connection.prepareStatement("DELETE FROM aktiveordrer WHERE ordrenummer = ?");
+            st.setInt(1,ordrenummer);
+            st.executeUpdate(); 
+        } catch (SQLException e){
+            System.out.println(e);
+        }
     }
 
 }
