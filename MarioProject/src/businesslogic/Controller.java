@@ -69,12 +69,12 @@ public class Controller {
         //Tilføj bestilling til ordrelisten
         aktiveOrdrer.add(bestilling);
          
-        if (ui.MerePizza() == true) {
+        while(ui.MerePizza() == true) {
             pizzanummer2 = ui.vælgPizza();
             Bestilling bestilling2 = new Bestilling(menukort.get(pizzanummer2 - 1), currentOrderNum);
              aktiveOrdrer.add(bestilling2);
-           
-        } else
+             //ui.MerePizza();
+        } 
         
         // Vis ordrenummer på skærm
         ui.visOrdreNummer(currentOrderNum);
