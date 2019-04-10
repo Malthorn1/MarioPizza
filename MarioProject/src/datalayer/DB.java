@@ -14,6 +14,10 @@ public interface DB {
     
     public void printMenukort() throws SQLException;
     
-    public void fjernBestilling();
+    public void fjernBestilling(Integer ordrenummer);
+    
+    public void færdiggørBestilling(Integer ordrenummer) throws SQLException;
+    
+    public void visOrdrehistorik() throws SQLException;
     
 }
