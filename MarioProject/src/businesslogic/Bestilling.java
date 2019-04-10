@@ -26,7 +26,7 @@ public class Bestilling {
     public String toString() {
         StringBuilder sb = new StringBuilder(100);
         return sb.append("").append(pizza)
-                .append(", ordreNummer: ").append(ordreNummer)
+                .append(", ordreNummer: ").append(ordreNummer).append("  ")
                 .toString();
     }
 
