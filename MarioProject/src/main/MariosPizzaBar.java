@@ -38,7 +38,7 @@ public class MariosPizzaBar {
         db.opretBestilling(db.getPizza(2));
 ////        System.out.println(db.getPizza(2));
         db.opretBestilling(db.getPizza(5));
-//        db.opretBestilling(db.getPizza(7));
+        db.opretBestilling(db.getPizza(7));
 //        db.printMenukort();
 ////        db.opretBestilling(db.getPizza(9));
 ////        db.opretBestilling(db.getPizza(13));
