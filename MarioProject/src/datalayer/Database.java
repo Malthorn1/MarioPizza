@@ -110,13 +110,56 @@ public class Database implements DB {
     public void fjernBestilling(Integer ordrenummer) {
         Database db = new Database();
         Connection connection = db.connector();
-        try{
+        try {
             PreparedStatement st = connection.prepareStatement("DELETE FROM aktiveordrer WHERE ordrenummer = ?");
-            st.setInt(1,ordrenummer);
-            st.executeUpdate(); 
-        } catch (SQLException e){
+            st.setInt(1, ordrenummer);
+            st.executeUpdate();
+        } catch (SQLException e) {
             System.out.println(e);
         }
     }
 
+    // Skal tage et ordrenummer som der skrives til ordrehistorikken, og derefter bliver fjernet fra aktive ordrer
+    @Override
+    public void færdiggørBestilling(Integer ordrenummer) throws SQLException {
+        Database db = new Database();
+        Connection connection = db.connector();
+
+        try {
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery("select * from ordrehistorik");
+            if(rs.next()){
+                boolean færdig = rs.getBoolean("FÆRDIG");
+                Timestamp timestamp = rs.getTimestamp("DATO");
+                String sql = "INSERT INTO ordrehistorik(ORDRENUMMER, FÆRDIG, DATO)VALUES(?,?,?)";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setInt(1, ordrenummer);
+                statement.setBoolean(2, færdig);
+                statement.setTimestamp(3, timestamp);
+                fjernBestilling(ordrenummer);
+                statement.executeUpdate();
+                
+                
+            }
+
+        } catch (SQLException e){
+            System.out.println(e);
+        }
+    }
+    
+    @Override
+    public void visOrdrehistorik() throws SQLException {
+        Connection connection = connector();
+        Statement statement = connection.createStatement();
+        ResultSet result = statement.executeQuery("SELECT * FROM ordrehistorik");
+        while (result.next()) {
+            int ordrenummer = result.getInt(1);
+            boolean færdig = result.getBoolean("FÆRDIG");
+            Timestamp ts = result.getTimestamp("DATO");
+            System.out.print("Ordrenummer: " +ordrenummer + ", ");
+            System.out.print("Færdig: "+færdig + ", ");
+            System.out.print("Dato oprettet: "+ts + "\n");
+
+        }
+    }
 }
