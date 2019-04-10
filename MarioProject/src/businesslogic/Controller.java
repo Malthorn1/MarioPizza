@@ -62,7 +62,7 @@ public class Controller {
     //historikken så snart vi laver en bestilling. 
     public void opretBestilling() {
         int pizzaNummer = ui.vælgPizza();
-        int pizzanummer2; 
+        int pizzanummer2 = 0; 
   
         FileFacade ordre = new FileFacade();
         Bestilling bestilling = new Bestilling(menukort.get(pizzaNummer - 1), currentOrderNum);
@@ -71,7 +71,8 @@ public class Controller {
          
         if (ui.MerePizza() == true) {
             pizzanummer2 = ui.vælgPizza();
-            //bestilling =  Bestilling(menukort.get(pizzanummer2-1), currentOrderNum);
+            Bestilling bestilling2 = new Bestilling(menukort.get(pizzanummer2 - 1), currentOrderNum);
+             aktiveOrdrer.add(bestilling2);
            
         } else
         
