@@ -16,7 +16,7 @@ public class Database implements DB {
         Connection connection = null;
         try {
             String user = "root";
-            String password = "frb150195";
+            String password = "rootprejler";
             String IP = "localhost";
             String PORT = "3306";
             String DATABASE = "mario";
