@@ -46,6 +46,14 @@ public interface UI {
     public void redigerBestillingsMenu(); 
     
     public boolean MerePizza(); 
+
+    public void fjernBestillingDB();
+
+    public void færdiggørBestillingDB();
+    
+    public void visHovedMenuDB();
+
+    public void visOrdrehistorikDB();
     
     
     

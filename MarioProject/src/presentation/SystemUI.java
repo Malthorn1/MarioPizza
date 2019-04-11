@@ -63,6 +63,16 @@ public class SystemUI implements UI {
         }
         visHovedMenu();
     }
+    
+    @Override
+    public void fjernBestillingDB()  {
+        Database db = new Database();
+        System.out.println("Skrive hvilket ordrenummer der skal fjernes: ");
+        Scanner scan = new Scanner(System.in);
+        int ordrenummer = scan.nextInt();
+        db.fjernBestilling(ordrenummer);
+        visHovedMenu();
+    }
 
     @Override
     public void visPizzaValg(String str) {
@@ -91,12 +101,21 @@ public class SystemUI implements UI {
     
     @Override
     public void visMenuKortDB() {
+        Scanner scanner = new Scanner(System.in);
     Database db = new Database();
         try {
             db.printMenukort();
         } catch (SQLException ex) {
             Logger.getLogger(SystemUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+        String antal = scanner.nextLine();
+            if (antal.contains("q")) {
+            visHovedMenuDB();
+        } else {
+                System.out.println("Klik på en vilkårlig tast og klik enter for at komme tilbage.");
+                visHovedMenuDB();
+            }
+        
     }
     
     @Override
@@ -114,6 +133,19 @@ public class SystemUI implements UI {
         System.out.println("3: Rediger bestilling");
         System.out.println("4: Vis aktive ordrer");
         System.out.println("5: Vis ordrehistorik");
+        System.out.println("q: Afslut");
+    }
+    
+    @Override
+    public void visHovedMenuDB() {
+        System.out.println("");
+        System.out.println("Vælg en af følgende valgmuligheder: ");
+        System.out.println("1: Vis menukort");
+        System.out.println("2: Opret bestilling");
+        System.out.println("3: Vis aktive ordrer");
+        System.out.println("4: Fjern bestilling");
+        System.out.println("5: Færdiggør bestilling");
+        System.out.println("6: Vis ordrehistorik");
         System.out.println("q: Afslut");
     }
     
@@ -250,4 +282,30 @@ public class SystemUI implements UI {
         }
 
     }
+
+    @Override
+    public void færdiggørBestillingDB() {
+        Database db = new Database();
+        System.out.println("Skrive hvilket ordrenummer der skal færdigøres: ");
+        Scanner scan = new Scanner(System.in);
+        int ordrenummer = scan.nextInt();
+        try {
+            db.færdiggørBestilling(ordrenummer);
+        } catch (SQLException ex) {
+            Logger.getLogger(SystemUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        visHovedMenu();
+    }
+
+    @Override
+    public void visOrdrehistorikDB() {
+        Database db = new Database();
+        try {
+            db.visOrdrehistorik();
+        } catch (SQLException ex) {
+            Logger.getLogger(SystemUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        visHovedMenu();
+    }
+
 }

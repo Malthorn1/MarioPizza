@@ -83,25 +83,27 @@ public class Controller {
     
         public void startDB() throws SQLException {
         boolean quit = false;
-        ui.visHovedMenu();
+        ui.visHovedMenuDB();
         do {
             String brugerInput = ui.hovedMenuValg();
             switch (brugerInput) {
                 case "1":
-                    visMenukortDB();
+                    ui.visMenuKortDB();
                     break;
                 case "2":
                     ui.vælgPizzaDB();
                     break;
                 case "3":
-                    redigerBestilling();
-                    break;
-                case "4":
                    ui.visAktiveOrdreDB();
                     break;
-                case "5":
-                    visOrdreHistorik();
+                case "4":
+                    ui.fjernBestillingDB();
                     break;
+                case "5":
+                    ui.færdiggørBestillingDB();
+                    break;
+                case "6":
+                    ui.visOrdrehistorikDB();
                 case "q":
                     Runtime.getRuntime().exit(0);
                     break;
