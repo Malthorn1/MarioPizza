@@ -50,11 +50,7 @@ public class Pizza {
     public void setPris(double pris) {
         this.pris = pris;
     }
-    
-    
-    
-        
-    
+
     
     @Override
     public String toString(){

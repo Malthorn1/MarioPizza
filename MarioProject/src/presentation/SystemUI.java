@@ -3,10 +3,14 @@ package presentation;
 import businesslogic.Bestilling;
 import datalayer.FileFacade;
 import businesslogic.Pizza;
+import datalayer.Database;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -65,6 +69,16 @@ public class SystemUI implements UI {
         System.out.println("\nTryk q for at gå tilbage");
         return getQ();
     }
+    
+    @Override
+    public void visMenuKortDB() {
+    Database db = new Database();
+        try {
+            db.printMenukort();
+        } catch (SQLException ex) {
+            Logger.getLogger(SystemUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     @Override
     public void visHovedMenu() {
@@ -76,6 +90,14 @@ public class SystemUI implements UI {
         System.out.println("4: Vis aktive ordrer");
         System.out.println("5: Vis ordrehistorik");
         System.out.println("q: Afslut");
+    }
+    
+    @Override
+    public void visStartMenu() {
+        System.out.println("");
+        System.out.println("Vælg en af følgende valgmuligheder: ");
+        System.out.println("1: Skriv til filesaver");
+        System.out.println("2: Skriv til database");
     }
 
     @Override

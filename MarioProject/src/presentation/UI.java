@@ -18,8 +18,12 @@ public interface UI {
     public void visOrdreNummer(int ordrenummer);
 
     public String visMenuKort(ArrayList<Pizza> menukort);
+    
+    public void visMenuKortDB();
 
     public void visHovedMenu();
+    
+    public void visStartMenu();
 
     public String hovedMenuValg();
 
@@ -36,6 +40,8 @@ public interface UI {
     public void redigerBestillingsMenu(); 
     
     public boolean MerePizza(); 
+    
+    
     
     
 }

@@ -4,6 +4,7 @@ import datalayer.DB;
 import datalayer.FileFacade;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import presentation.UI;
@@ -26,6 +27,22 @@ public class Controller {
         this.menukort = menukort;
         aktiveOrdrer = new ArrayList<Bestilling>();
         currentOrderNum = 1;
+    }
+    
+    public void startProgram() throws SQLException {
+        boolean quit = false;
+        ui.visStartMenu();
+        do {
+            String brugerInput = ui.hovedMenuValg();
+            switch (brugerInput) {
+                case "1":
+                    start();
+                    break;
+                case "2":
+                    startDB();
+                    break;
+            }
+        } while (!quit);
     }
 
     public void start() {
@@ -58,6 +75,38 @@ public class Controller {
         } while (!quit);
 
     }
+    
+        public void startDB() throws SQLException {
+        boolean quit = false;
+        ui.visHovedMenu();
+        do {
+            String brugerInput = ui.hovedMenuValg();
+            switch (brugerInput) {
+                case "1":
+                    visMenukortDB();
+                    break;
+                case "2":
+                    opretBestilling();
+                    break;
+                case "3":
+                    redigerBestilling();
+                    break;
+                case "4":
+                    visAktiveOrdrer();
+                    break;
+                case "5":
+                    visOrdreHistorik();
+                    break;
+                case "q":
+                    quit = true;
+                    break;
+                default:
+                    System.err.print("Input forkert, prøv igen: ");
+            }
+        } while (!quit);
+
+    }
+        
     //Problemet her er at vi ikke kunne få færdiggør ordre til at virke, så vi skriver til ordre
     //historikken så snart vi laver en bestilling. 
     public void opretBestilling() {
@@ -109,6 +158,10 @@ public class Controller {
     
     public void visMenukort() {
         ui.visMenuKort(menukort);
+    }
+    
+    public void visMenukortDB() throws SQLException {
+        ui.visMenuKortDB();
     }
 
     public void redigerBestilling() {

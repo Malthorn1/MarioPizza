@@ -101,3 +101,4 @@ Pizza: 1, Vesuvio, Pris = 57.0, ordreNummer: 1
 Pizza: 12, Le Blissola, Pris = 61.0, ordreNummer: 2  
 Pizza: 1, Vesuvio, Pris = 57.0, ordreNummer: 1  
 Pizza: 1, Vesuvio, Pris = 57.0, ordreNummer: 2  
+Pizza: 1, Vesuvio, Pris = 57.0, ordreNummer: 1  

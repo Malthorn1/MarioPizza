@@ -45,7 +45,6 @@ public class Database implements DB {
             System.out.print(pizzanummer + " ");
             System.out.print(pizzanavn + " ");
             System.out.print(pizzapris + "\n");
-
         }
     }
 
