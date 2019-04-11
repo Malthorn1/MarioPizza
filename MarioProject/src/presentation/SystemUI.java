@@ -54,6 +54,10 @@ public class SystemUI implements UI {
         for (int i = 0; i < antal; i++) {
             System.out.println("Skriv pizzanummeret kunden har valgt: ");
             int brugerInput = scan.nextInt();
+            if (brugerInput <= 0 || brugerInput >= 15){
+                System.out.println("Forkert input, retunerer til hovedmenu.");
+                break;
+            }
             try {
                 db.opretBestilling(db.getPizza(brugerInput));
             } catch (SQLException ex) {
@@ -303,10 +307,11 @@ public class SystemUI implements UI {
         Database db = new Database();
         try {
             db.visOrdrehistorik();
+            visHovedMenuDB();
         } catch (SQLException ex) {
             Logger.getLogger(SystemUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        visHovedMenuDB();
+        
     }
 
 }
