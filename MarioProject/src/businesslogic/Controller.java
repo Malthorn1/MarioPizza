@@ -65,10 +65,13 @@ public class Controller {
         int pizzanummer2 = 0; 
   
         FileFacade ordre = new FileFacade();
+        
+        if (pizzaNummer <1 || pizzaNummer  > 13 ) {
+            ui.visHovedMenu();
+        }  else {
         Bestilling bestilling = new Bestilling(menukort.get(pizzaNummer - 1), currentOrderNum);
-        //Tilføj bestilling til ordrelisten
         aktiveOrdrer.add(bestilling);
-         
+        //Tilføj bestilling til ordrelisten
         while(ui.MerePizza() == true) {
             pizzanummer2 = ui.vælgPizza();
             Bestilling bestilling2 = new Bestilling(menukort.get(pizzanummer2 - 1), currentOrderNum);
@@ -91,6 +94,7 @@ public class Controller {
         }
         catch(IOException e){
             e.printStackTrace();
+        }
         }
             
        //Kunne ikke lave nogle Junit test da vi havde "start()" her grundet vi fik en arrayoutofboundsexception
@@ -123,6 +127,7 @@ public class Controller {
                 break;
             case "q":
                 ui.visHovedMenu();
+                break;
             default:
                 System.err.print("Input forkert, prøv igen: ");
         }

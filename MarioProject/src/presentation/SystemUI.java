@@ -15,31 +15,47 @@ import java.util.Scanner;
 public class SystemUI implements UI {
 
     @Override
-    public int vælgPizza() {
-        /*System.out.println("Skriv hvilket pizzanummer kunden har bestilt. Skriv q for at gå tilbage.");
-        Scanner scan = new Scanner(System.in);
+    public int vælgPizza()  {
+        /*Scanner scan = new Scanner(System.in);
         return scan.nextInt();*/
         Scanner scan = new Scanner(System.in);
-        int result;
+        boolean running = true;
+        int result= 0;
         System.out.println("Skriv hvilket pizzanummer kunden har bestilt. Skriv q for at gå tilbage.");
-
-        while (true) {
-            result = scan.nextInt();
-
+        String brugerInput = scan.next();
+        if (brugerInput.contains("q")) {
+            return 0;
+        } else if (brugerInput.matches("[1-9][0-9]*")) {
+            result=Integer.valueOf(brugerInput);
+            while (running) {
+                result = Integer.parseInt(brugerInput);
             if (result > 0 && result < 14) {
                 break;
             } else {
-                System.err.println("Pizzaen findes ikke, prøv igen.");
-            }
-        }
-        return result;
-    }
+                System.err.println("Pizzaen findes ikke, går tilbage til hovedmenu. ");
+                System.out.println("");
+                return result; 
+                
+               
+             }
+         }
+            return result; 
+        } else {
+            System.err.println("Forkert input, går tilbage til hovedmenu");
+ 
+        } 
+            
+        return result; 
+        
+     }
 
     @Override
     public void visPizzaValg(String str) {
-        String[] arrOfStr =str.split("  ,");
-        for(String a:arrOfStr) System.out.println(a);
-        
+        String[] arrOfStr = str.split("  ,");
+        for (String a : arrOfStr) {
+            System.out.println(a);
+        }
+
         //System.out.println(str);
         visHovedMenu();
 
@@ -120,6 +136,7 @@ public class SystemUI implements UI {
         System.out.println("Skriv q for at gå tilbage til rediger bestilling");
         Scanner scan = new Scanner(System.in);
         String brugerInput = scan.nextLine();
+//        String brugerInput1 = "ordreNummer: "+ brugerInput1;
         //Hvis bruger ønsker at afslutte
         if (brugerInput.equals("q")) {
             redigerBestilling(aktiveOrdrer);
@@ -132,11 +149,24 @@ public class SystemUI implements UI {
                 System.out.println("Du har fjernet ordre: " + aktiveOrdrer.get(i));
                 aktiveOrdrer.remove(i);
                 visHovedMenu();
-            } else {
+            }
+            {
                 System.err.println("Ordren findes ikke, prøv igen.");
             }
         }
         return "";
+//        
+//        for (int i = Integer.parseInt(brugerInput); i < aktiveOrdrer.size();i++) {
+//            if (aktiveOrdrer.contains(brugerInput1))  {
+//                System.out.println("Du har fjernet ordre: " + aktiveOrdrer.get(i));
+//                aktiveOrdrer.remove(i);
+//                visHovedMenu();
+//                
+//            } { 
+//                System.err.println("Ordren findes ikke, prøv igen.");
+//            }
+////        } 
+//        return "";
     }
 
     //Har lavet denne metode for at tilføje til ordrehistorik når man færdiggør en ordre,
@@ -193,20 +223,18 @@ public class SystemUI implements UI {
         System.out.println("Skriv q for at gå tilbage til hovedmenu");
     }
 
-     @Override
+    @Override
     public boolean MerePizza() {
         System.out.println("Vil kunden have mere pizza? tast 1 for ja, tryk alt andet for nej");
         Scanner scan = new Scanner(System.in);
         String brugerInput = scan.nextLine();
-        String Invalid; 
-        
-       
-        if (brugerInput.equals("1" )){
-            return true; 
-        } else  {
+        String Invalid;
+
+        if (brugerInput.equals("1")) {
+            return true;
+        } else {
             return false;
-        } 
-        
+        }
+
     }
 }
-
