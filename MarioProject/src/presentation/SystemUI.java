@@ -61,7 +61,7 @@ public class SystemUI implements UI {
             }
             
         }
-        visHovedMenu();
+        visHovedMenuDB();
     }
     
     @Override
@@ -122,6 +122,7 @@ public class SystemUI implements UI {
     public void visAktiveOrdreDB() throws SQLException {
         Database db = new Database();
         db.visAktiveOrdre();
+        visHovedMenuDB();
     }
 
     @Override
