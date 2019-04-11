@@ -97,7 +97,7 @@ public class Controller {
                     redigerBestilling();
                     break;
                 case "4":
-                    visAktiveOrdrer();
+                   ui.visAktiveOrdreDB();
                     break;
                 case "5":
                     visOrdreHistorik();

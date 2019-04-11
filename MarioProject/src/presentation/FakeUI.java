@@ -5,6 +5,7 @@ import datalayer.FileFacade;
 import businesslogic.Pizza;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -112,6 +113,11 @@ public class FakeUI implements UI {
 
     @Override
     public void vælgPizzaDB() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void visAktiveOrdreDB() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

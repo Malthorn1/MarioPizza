@@ -2,6 +2,7 @@ package presentation;
 
 import businesslogic.Bestilling;
 import businesslogic.Pizza;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -15,6 +16,8 @@ public interface UI {
     public int vælgPizza();
     
     public void vælgPizzaDB();
+    
+    public void visAktiveOrdreDB() throws SQLException;
             
     public void visPizzaValg(String string);
 

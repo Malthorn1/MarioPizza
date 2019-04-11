@@ -160,4 +160,22 @@ public class Database implements DB {
 
         }
     }
+    
+        @Override
+        public void visAktiveOrdre() throws SQLException {
+        Connection connection = connector();
+        Statement statement = connection.createStatement();
+        ResultSet result = statement.executeQuery("SELECT * FROM AKTIVEORDRER");
+        while (result.next()) {
+            int ordrenummer = result.getInt("ORDRENUMMER");
+            boolean færdig = result.getBoolean("FÆRDIG");
+            Timestamp ts = result.getTimestamp("DATOOPRETTET");
+            int pizzanummer = result.getInt("PIZZANUMMER");
+            System.out.print("Ordrenummer: " +ordrenummer + ", ");
+            System.out.print("Færdig: "+færdig + ", ");
+            System.out.print("Dato oprettet: "+ts + "\n");
+            System.out.println("Pizzza nummer: "+ pizzanummer + "\n");
+
+        }
+    }
 }

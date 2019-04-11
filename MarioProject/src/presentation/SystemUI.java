@@ -98,6 +98,12 @@ public class SystemUI implements UI {
             Logger.getLogger(SystemUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @Override
+    public void visAktiveOrdreDB() throws SQLException {
+        Database db = new Database();
+        db.visAktiveOrdre();
+    }
 
     @Override
     public void visHovedMenu() {
