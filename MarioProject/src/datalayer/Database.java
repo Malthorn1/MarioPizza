@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.sql.Timestamp;
 
 public class Database implements DB {
 
@@ -17,7 +16,7 @@ public class Database implements DB {
         Connection connection = null;
         try {
             String user = "root";
-            String password = "rootprejler";
+            String password = "frb150195";
             String IP = "localhost";
             String PORT = "3306";
             String DATABASE = "mario";

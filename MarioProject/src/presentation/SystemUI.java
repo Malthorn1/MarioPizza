@@ -34,20 +34,12 @@ public class SystemUI implements UI {
             } else {
                 System.err.println("Pizzaen findes ikke, går tilbage til hovedmenu. ");
                 System.out.println("");
-                return result; 
-                
-               
+                return result;
              }
          }
-            return result; 
-        } else {
-            System.err.println("Forkert input, går tilbage til hovedmenu");
- 
-        } 
-            
-        return result; 
-        
-     }
+    }
+        return result;
+    }
 
     @Override
     public void visPizzaValg(String str) {
@@ -55,7 +47,6 @@ public class SystemUI implements UI {
         for (String a : arrOfStr) {
             System.out.println(a);
         }
-
         //System.out.println(str);
         visHovedMenu();
 
@@ -101,7 +92,6 @@ public class SystemUI implements UI {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         Scanner scan = new Scanner(System.in);
         System.out.print("\nTryk q for returnere til hovedmenu: ");
         String brugerInput = scan.next();
@@ -151,22 +141,10 @@ public class SystemUI implements UI {
                 visHovedMenu();
             }
             {
-                System.err.println("Ordren findes ikke, prøv igen.");
+                System.err.println("Forkert input, går tilbage til hovedmenu");
             }
         }
         return "";
-//        
-//        for (int i = Integer.parseInt(brugerInput); i < aktiveOrdrer.size();i++) {
-//            if (aktiveOrdrer.contains(brugerInput1))  {
-//                System.out.println("Du har fjernet ordre: " + aktiveOrdrer.get(i));
-//                aktiveOrdrer.remove(i);
-//                visHovedMenu();
-//                
-//            } { 
-//                System.err.println("Ordren findes ikke, prøv igen.");
-//            }
-////        } 
-//        return "";
     }
 
     //Har lavet denne metode for at tilføje til ordrehistorik når man færdiggør en ordre,
@@ -182,24 +160,12 @@ public class SystemUI implements UI {
         for (int i = 0; i < aktiveOrdrer.size(); i++) {
             if (aktiveOrdrer.get(i).toString().contains(brugerInput)) {
                 System.out.println("Du har fædriggjort ordre: " + aktiveOrdrer.get(i));
-
                 aktiveOrdrer.remove(i);
-
+            } else {
+                System.err.println("Forkert input, går tilbage til hovedmenu");
             }
-
-//        try{
-//            ordre.writeFile(brugerInput);
-//        }
-//        catch(FileNotFoundException e){
-//            e.printStackTrace();
-//        }
-//        catch(IOException e){
-//            e.printStackTrace();
-//        }
-//            
             visHovedMenu();
         }
-
     }
 
     public String getQ() {

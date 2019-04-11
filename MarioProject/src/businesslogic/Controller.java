@@ -62,7 +62,7 @@ public class Controller {
     //historikken så snart vi laver en bestilling. 
     public void opretBestilling() {
         int pizzaNummer = ui.vælgPizza();
-        int pizzanummer2 = 0; 
+        int pizzanummer2;
   
         FileFacade ordre = new FileFacade();
         
@@ -130,21 +130,19 @@ public class Controller {
                 break;
             default:
                 System.err.print("Input forkert, prøv igen: ");
+        } 
+    }
+    
+        public void fjernBestilling(){
+        ui.fjernBestilling(aktiveOrdrer);
         }
         
-        
-        
-    }
-    public void fjernBestilling(){
-        ui.fjernBestilling(aktiveOrdrer);
-    }
-    public void visAktiveOrdrer() {
+        public void visAktiveOrdrer() {
         ui.visAktiveOrdrer(aktiveOrdrer);
-        
-    }
+        }
 
-    public void visOrdreHistorik() {
+        public void visOrdreHistorik() {
         ui.visOrdreHistorik();
-    }
+        }
 
 }

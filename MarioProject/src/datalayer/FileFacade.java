@@ -54,7 +54,17 @@ public class FileFacade implements DB {
     }
 
     @Override
-    public void fjernBestilling() {
+    public void fjernBestilling(Integer ordrenummer) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void færdiggørBestilling(Integer ordrenummer) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void visOrdrehistorik() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
