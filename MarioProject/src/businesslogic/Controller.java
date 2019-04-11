@@ -41,12 +41,17 @@ public class Controller {
                 case "2":
                     startDB();
                     break;
+                case "q":
+                    quit = true;
+                    break;
+                default:
+                    System.err.print("Input forkert, prøv igen: ");
             }
         } while (!quit);
     }
 
     public void start() {
-        boolean quit = false;
+        boolean quite = false;
         ui.visHovedMenu();
         do {
             String brugerInput = ui.hovedMenuValg();
@@ -67,12 +72,12 @@ public class Controller {
                     visOrdreHistorik();
                     break;
                 case "q":
-                    quit = true;
+                    Runtime.getRuntime().exit(0);
                     break;
                 default:
                     System.err.print("Input forkert, prøv igen: ");
             }
-        } while (!quit);
+        } while (!quite);
 
     }
     
@@ -86,7 +91,7 @@ public class Controller {
                     visMenukortDB();
                     break;
                 case "2":
-                    opretBestilling();
+                    ui.vælgPizzaDB();
                     break;
                 case "3":
                     redigerBestilling();
@@ -98,7 +103,7 @@ public class Controller {
                     visOrdreHistorik();
                     break;
                 case "q":
-                    quit = true;
+                    Runtime.getRuntime().exit(0);
                     break;
                 default:
                     System.err.print("Input forkert, prøv igen: ");
@@ -173,7 +178,7 @@ public class Controller {
                 ui.redigerBestilling(aktiveOrdrer);
                 break;
             case "2":
-                fjernBestilling();
+                ui.fjernBestilling(aktiveOrdrer);
                 break;
             case"3":
                 ui.færdiggørBestilling(aktiveOrdrer);
@@ -185,10 +190,6 @@ public class Controller {
                 System.err.print("Input forkert, prøv igen: ");
         } 
     }
-    
-        public void fjernBestilling(){
-        ui.fjernBestilling(aktiveOrdrer);
-        }
         
         public void visAktiveOrdrer() {
         ui.visAktiveOrdrer(aktiveOrdrer);

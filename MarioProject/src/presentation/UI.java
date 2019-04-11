@@ -12,7 +12,10 @@ import java.util.ArrayList;
 
 public interface UI {
 
-    public void vælgPizza();
+    public int vælgPizza();
+    
+    public void vælgPizzaDB();
+            
     public void visPizzaValg(String string);
 
     public void visOrdreNummer(int ordrenummer);

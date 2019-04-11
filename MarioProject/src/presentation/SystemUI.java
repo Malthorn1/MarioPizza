@@ -19,7 +19,34 @@ import java.util.logging.Logger;
 public class SystemUI implements UI {
 
     @Override
-    public void vælgPizza()  {
+    public int vælgPizza()  {
+        /*Scanner scan = new Scanner(System.in);
+        return scan.nextInt();*/
+        Scanner scan = new Scanner(System.in);
+        boolean running = true;
+        int result= 0;
+        System.out.println("Skriv hvilket pizzanummer kunden har bestilt. Skriv q for at gå tilbage.");
+        String brugerInput = scan.next();
+        if (brugerInput.contains("q")) {
+            return 0;
+        } else if (brugerInput.matches("[1-9][0-9]*")) {
+            result=Integer.valueOf(brugerInput);
+            while (running) {
+                result = Integer.parseInt(brugerInput);
+            if (result > 0 && result < 14) {
+                break;
+            } else {
+                System.err.println("Pizzaen findes ikke, går tilbage til hovedmenu. ");
+                System.out.println("");
+                return result;
+             }
+         }
+    }
+        return result;
+    }
+    
+    @Override
+    public void vælgPizzaDB()  {
         Database db = new Database();
         System.out.println("Hvor mange pizzaer har kundet bestilt? ");
         Scanner scan = new Scanner(System.in);
@@ -36,30 +63,6 @@ public class SystemUI implements UI {
         }
         visHovedMenu();
     }
-//        /*Scanner scan = new Scanner(System.in);
-//        return scan.nextInt();*/
-//        Scanner scan = new Scanner(System.in);
-//        boolean running = true;
-//        int result= 0;
-//        System.out.println("Skriv hvilket pizzanummer kunden har bestilt. Skriv q for at gå tilbage.");
-//        String brugerInput = scan.next();
-//        if (brugerInput.contains("q")) {
-//            return 0;
-//        } else if (brugerInput.matches("[1-9][0-9]*")) {
-//            result=Integer.valueOf(brugerInput);
-//            while (running) {
-//                result = Integer.parseInt(brugerInput);
-//            if (result > 0 && result < 14) {
-//                break;
-//            } else {
-//                System.err.println("Pizzaen findes ikke, går tilbage til hovedmenu. ");
-//                System.out.println("");
-//                return result;
-//             }
-//         }
-//    }
-//        return result;
-//    }
 
     @Override
     public void visPizzaValg(String str) {
