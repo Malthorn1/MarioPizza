@@ -104,6 +104,7 @@ public class Controller {
                     break;
                 case "6":
                     ui.visOrdrehistorikDB();
+                    break;
                 case "q":
                     Runtime.getRuntime().exit(0);
                     break;
