@@ -71,7 +71,7 @@ public class SystemUI implements UI {
         Scanner scan = new Scanner(System.in);
         int ordrenummer = scan.nextInt();
         db.fjernBestilling(ordrenummer);
-        visHovedMenu();
+        visHovedMenuDB();
     }
 
     @Override
@@ -295,7 +295,7 @@ public class SystemUI implements UI {
         } catch (SQLException ex) {
             Logger.getLogger(SystemUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        visHovedMenu();
+        visHovedMenuDB();
     }
 
     @Override
@@ -306,7 +306,7 @@ public class SystemUI implements UI {
         } catch (SQLException ex) {
             Logger.getLogger(SystemUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        visHovedMenu();
+        visHovedMenuDB();
     }
 
 }
