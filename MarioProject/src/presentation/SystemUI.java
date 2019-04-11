@@ -19,31 +19,47 @@ import java.util.logging.Logger;
 public class SystemUI implements UI {
 
     @Override
-    public int vælgPizza()  {
-        /*Scanner scan = new Scanner(System.in);
-        return scan.nextInt();*/
+    public void vælgPizza()  {
+        Database db = new Database();
+        System.out.println("Hvor mange pizzaer har kundet bestilt? ");
         Scanner scan = new Scanner(System.in);
-        boolean running = true;
-        int result= 0;
-        System.out.println("Skriv hvilket pizzanummer kunden har bestilt. Skriv q for at gå tilbage.");
-        String brugerInput = scan.next();
-        if (brugerInput.contains("q")) {
-            return 0;
-        } else if (brugerInput.matches("[1-9][0-9]*")) {
-            result=Integer.valueOf(brugerInput);
-            while (running) {
-                result = Integer.parseInt(brugerInput);
-            if (result > 0 && result < 14) {
-                break;
-            } else {
-                System.err.println("Pizzaen findes ikke, går tilbage til hovedmenu. ");
-                System.out.println("");
-                return result;
-             }
-         }
+        int antal = scan.nextInt();
+        for (int i = 0; i < antal; i++) {
+            System.out.println("Skriv pizzanummeret kunden har valgt: ");
+            int brugerInput = scan.nextInt();
+            try {
+                db.opretBestilling(db.getPizza(brugerInput));
+            } catch (SQLException ex) {
+                Logger.getLogger(SystemUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        visHovedMenu();
     }
-        return result;
-    }
+//        /*Scanner scan = new Scanner(System.in);
+//        return scan.nextInt();*/
+//        Scanner scan = new Scanner(System.in);
+//        boolean running = true;
+//        int result= 0;
+//        System.out.println("Skriv hvilket pizzanummer kunden har bestilt. Skriv q for at gå tilbage.");
+//        String brugerInput = scan.next();
+//        if (brugerInput.contains("q")) {
+//            return 0;
+//        } else if (brugerInput.matches("[1-9][0-9]*")) {
+//            result=Integer.valueOf(brugerInput);
+//            while (running) {
+//                result = Integer.parseInt(brugerInput);
+//            if (result > 0 && result < 14) {
+//                break;
+//            } else {
+//                System.err.println("Pizzaen findes ikke, går tilbage til hovedmenu. ");
+//                System.out.println("");
+//                return result;
+//             }
+//         }
+//    }
+//        return result;
+//    }
 
     @Override
     public void visPizzaValg(String str) {
