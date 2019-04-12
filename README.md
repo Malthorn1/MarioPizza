@@ -1,3 +1,4 @@
+<div>
 # MarioPizza
 
 <h2>Frederik, Casper P og Mikkel</h2>
@@ -21,6 +22,10 @@ BrugerInput validering virker ikke 100%.
 
 JUnit tests virker ikke
 
-
+</div>
+<div>
 UML klassediagram:
+
+
 <img src="https://i.imgur.com/YaIHP1L.png">
+</div>
