@@ -8,7 +8,7 @@ import java.sql.SQLException;
  *
  * @author prejl
  */
-public interface DB {
+public interface Facade {
     
     public void opretBestilling(Pizza pizza)throws SQLException;
     

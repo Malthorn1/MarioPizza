@@ -1,7 +1,7 @@
 
 package businesslogic;
 
-import datalayer.Database;
+import datalayer.DBFacade;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

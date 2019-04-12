@@ -3,7 +3,7 @@ package presentation;
 import businesslogic.Bestilling;
 import datalayer.FileFacade;
 import businesslogic.Pizza;
-import datalayer.Database;
+import datalayer.DBFacade;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -47,7 +47,7 @@ public class SystemUI implements UI {
     
     @Override
     public void vælgPizzaDB()  {
-        Database db = new Database();
+        DBFacade db = new DBFacade();
         System.out.println("Hvor mange pizzaer har kundet bestilt? ");
         Scanner scan = new Scanner(System.in);
         int antal = scan.nextInt();
@@ -70,7 +70,7 @@ public class SystemUI implements UI {
     
     @Override
     public void fjernBestillingDB()  {
-        Database db = new Database();
+        DBFacade db = new DBFacade();
         System.out.println("Skrive hvilket ordrenummer der skal fjernes: ");
         Scanner scan = new Scanner(System.in);
         int ordrenummer = scan.nextInt();
@@ -106,7 +106,7 @@ public class SystemUI implements UI {
     @Override
     public void visMenuKortDB() {
         Scanner scanner = new Scanner(System.in);
-    Database db = new Database();
+    DBFacade db = new DBFacade();
         try {
             db.printMenukort();
         } catch (SQLException ex) {
@@ -124,7 +124,7 @@ public class SystemUI implements UI {
     
     @Override
     public void visAktiveOrdreDB() throws SQLException {
-        Database db = new Database();
+        DBFacade db = new DBFacade();
         db.visAktiveOrdre();
         visHovedMenuDB();
     }
@@ -290,7 +290,7 @@ public class SystemUI implements UI {
 
     @Override
     public void færdiggørBestillingDB() {
-        Database db = new Database();
+        DBFacade db = new DBFacade();
         System.out.println("Skrive hvilket ordrenummer der skal færdigøres: ");
         Scanner scan = new Scanner(System.in);
         int ordrenummer = scan.nextInt();
@@ -304,7 +304,7 @@ public class SystemUI implements UI {
 
     @Override
     public void visOrdrehistorikDB() {
-        Database db = new Database();
+        DBFacade db = new DBFacade();
         try {
             db.visOrdrehistorik();
             visHovedMenuDB();

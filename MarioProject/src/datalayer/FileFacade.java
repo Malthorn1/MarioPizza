@@ -17,7 +17,7 @@ import java.util.Scanner;
  * @author Casper P, Frederik, Mikkel
  */
 
-public class FileFacade implements DB {
+public class FileFacade implements Facade {
     //Write file tager en bestilling inde fra controlleren når vi opretter ordre. 
     // Den writer så ordrens toString ind i filen
     public void writeFile(Bestilling bestilling) throws IOException {
