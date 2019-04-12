@@ -1,6 +1,6 @@
 package businesslogic;
 
-import datalayer.DB;
+import datalayer.Facade;
 import datalayer.FileFacade;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,14 +15,14 @@ import presentation.UI;
  */
 
 public class Controller {
-    private DB db;
+    private Facade facade;
     private UI ui;
     private ArrayList<Pizza> menukort;
     private ArrayList<Bestilling> aktiveOrdrer;
     private int currentOrderNum;
 
     public Controller(UI ui, ArrayList<Pizza> menukort) {
-        this.db=db;
+        this.facade=facade;
         this.ui = ui;
         this.menukort = menukort;
         aktiveOrdrer = new ArrayList<Bestilling>();

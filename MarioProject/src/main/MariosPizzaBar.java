@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import presentation.FakeUI;
 import presentation.SystemUI;
 import presentation.UI;
-import datalayer.Database;
+import datalayer.DBFacade;
 import java.sql.SQLException;
 
 /**
@@ -32,7 +32,7 @@ public class MariosPizzaBar {
          pizzaer.add(new Pizza(14, "Mafia", 61.0));
         SystemUI ui = new SystemUI();
         Controller ctrl = new Controller(ui, pizzaer);
-        Database db = new Database();
+        DBFacade db = new DBFacade();
         ctrl.startProgram();
         //db.printMenukort();
         
