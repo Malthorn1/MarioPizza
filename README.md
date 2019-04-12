@@ -2,6 +2,11 @@
 
 <h2>Frederik, Casper P og Mikkel</h2>
 
+
+Til testning:
+
+Husk at skift password i DBFacade under connector.
+
 <h4>Known errors: </h4>
 
 Vores DATOFÆRDIG kolonne i aktiveordrer tabel viser default 00:00:00. Vi kan ikke haft tid til at implementere en Timestamp + 10 minutter funktion på dette. 
