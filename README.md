@@ -14,3 +14,4 @@ Hvis man opretter flere pizzaer på en gang, får de ikke samme ordrenummer.
 
 BrugerInput validering virker ikke 100%.
 
+JUnit tests virker ikke
